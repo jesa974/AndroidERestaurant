@@ -67,7 +67,6 @@ public class MyAdapter extends RecyclerView.Adapter<fr.isen.prezut.androideresta
     @Override
     public int getItemCount() { return myFoodList.size(); }
 
-
     public void filteredList(ArrayList<FoodData> filterList) {
 
         myFoodList = filterList;
