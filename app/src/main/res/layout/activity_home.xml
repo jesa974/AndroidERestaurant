@@ -6,26 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <Button
-        android:id="@+id/plats_button"
-        android:layout_width="191dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="8dp"
-        android:text="Plats"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entrees_button" />
-
-    <Button
-        android:id="@+id/dessert_button"
-        android:layout_width="190dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="8dp"
-        android:text="Desserts"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plats_button" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -39,16 +19,45 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.022" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="396dp"
+        android:layout_height="355dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="276dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/glouton" />
+
+    <Button
+        android:id="@+id/dessert_button"
+        android:layout_width="192dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="44dp"
+        android:text="Desserts"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plats_button" />
+
+    <Button
+        android:id="@+id/plats_button"
+        android:layout_width="192dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="44dp"
+        android:text="Plats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entrees_button" />
 
     <Button
         android:id="@+id/entrees_button"
         android:layout_width="192dp"
         android:layout_height="48dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="356dp"
         android:text="Entrées"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
