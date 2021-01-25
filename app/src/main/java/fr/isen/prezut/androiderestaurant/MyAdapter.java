@@ -41,13 +41,27 @@ public class MyAdapter extends RecyclerView.Adapter<fr.isen.prezut.androideresta
     @Override
     public void onBindViewHolder(@NonNull final fr.isen.prezut.androiderestaurant.FoodViewHolder foodViewHolder, int i) {
 
-        // foodViewHolder.imageView.setImageResource(myFoodList.get(i).getItemImage());
         foodViewHolder.mTitle.setText(myFoodList.get(i).getItemName());
         foodViewHolder.mDescription.setText(myFoodList.get(i).getItemDescription());
         foodViewHolder.mPrice.setText(myFoodList.get(i).getItemPrice());
 
-        setAnimation(foodViewHolder.itemView,i);
+        foodViewHolder.mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent intent = new Intent(mContext,DetailActivity.class);
+                intent.putExtra("Image",myFoodList.get(foodViewHolder.getAdapterPosition()).getItemImage());
+                intent.putExtra("Description",myFoodList.get(foodViewHolder.getAdapterPosition()).getItemDescription());
+                intent.putExtra("RecipeName",myFoodList.get(foodViewHolder.getAdapterPosition()).getItemName());
+                intent.putExtra("price",myFoodList.get(foodViewHolder.getAdapterPosition()).getItemPrice());
+                intent.putExtra("keyValue",myFoodList.get(foodViewHolder.getAdapterPosition()).getKey());
+                mContext.startActivity(intent);
+
+
+            }
+        });
+
+        setAnimation(foodViewHolder.itemView,i);
     }
 
     public void setAnimation(View viewToAnimate, int position ){
