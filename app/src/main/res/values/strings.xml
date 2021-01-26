@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
+
+    <string name="entree_title">Entrées</string>
+    <string name="plats_title">Plats</string>
+    <string name="deserts_title">Desserts</string>
+    <string name="ours">Nos</string>
+
+    <string name="entree_menu_item">Entrées</string>
+    <string name="plats_menu_item">Plats</string>
+    <string name="deserts_menu_item">Desserts</string>
+
+    <string name="known_as">Known as: </string>
+    <string name="dish_name_default">Les Lasagnes</string>
+    <string name="from_price">Prix : </string>
+    <string name="euros">€</string>
+
+    <string name="logo_description">Logo principale</string>
+    <string name="entree_description">Voir nos Entrées</string>
+    <string name="plats_description">Voir nos Plats</string>
+    <string name="deserts_description">Voir nos Desserts</string>
+    <string name="divider_description">Diviseur</string>
+
+    <string name="description_generale">Dans les lasagnes, il faut des pâtes, de la sauce tomate, de la viande hachée et plein de petits légumes</string>
 </resources>
