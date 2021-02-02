@@ -14,8 +14,11 @@
         android:theme="@style/Theme.AndroidERestaurant"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".DishDetailActivity" />
-        <activity android:name=".DishesListActivity" />
+        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".CartActivity" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".ListActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,14 +1,14 @@
-package fr.isen.prezut.androiderestaurant.model
+package fr.isen.prezut.androiderestaurant.domain
 
 import java.io.Serializable
 import java.util.*
 
-data class Price(
+data class PriceData(
     val id: Long,
     val id_pizza: Long,
     val id_size: Long,
-    val price: Double,
     val create_date: Date,
     val update_date: Date,
+    val price: Double,
     val size: String
-) : Serializable
+):Serializable

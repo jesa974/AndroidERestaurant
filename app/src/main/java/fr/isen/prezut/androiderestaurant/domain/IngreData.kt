@@ -1,9 +1,9 @@
-package fr.isen.prezut.androiderestaurant.model
+package fr.isen.prezut.androiderestaurant.domain
 
 import java.io.Serializable
 import java.util.*
 
-data class Ingredient(
+data class IngreData(
     val id: Long,
     val id_shop: Long,
     val name_fr: String,

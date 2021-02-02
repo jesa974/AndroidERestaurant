@@ -1,85 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    android:orientation="vertical"
+    tools:context=".HomeActivity"
+    >
 
-    <TextView
-        android:id="@+id/homePlatsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:contentDescription="@string/plats_description"
-        android:fontFamily="monospace"
-        android:text="@string/plats_menu_item"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeEntreeButton" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="30dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/homeEntreeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="412dp"
-        android:contentDescription="@string/entree_description"
-        android:fontFamily="monospace"
-        android:text="@string/entree_menu_item"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/iv_foodImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/glouton" />
 
-    <TextView
-        android:id="@+id/homeDesertsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:contentDescription="@string/deserts_description"
-        android:fontFamily="monospace"
-        android:text="@string/deserts_menu_item"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homePlatsButton" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bienvenue à toi cher glouton"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30sp" />
 
-    <ImageView
-        android:id="@+id/homeLogo"
-        android:layout_width="410dp"
-        android:layout_height="286dp"
-        android:layout_marginTop="100dp"
-        android:contentDescription="@string/logo_description"
-        android:src="@drawable/glouton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <Button
+                    android:id="@+id/entree"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/entree_title"
+                    android:textSize="22sp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="100dp"
+                    android:onClick="btnMenu"
+                    />
+                <Button
+                    android:id="@+id/plat"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/plats_title"
+                    android:textSize="22sp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="10dp"
+                    android:onClick="btnMenu"
+                    />
+                <Button
+                    android:id="@+id/dessert"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/deserts_title"
+                    android:textSize="22sp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="10dp"
+                    android:onClick="btnMenu"
+                    />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:text="Bienvenue à toi cher Glouton"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/homeLogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.544" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+</ScrollView>
