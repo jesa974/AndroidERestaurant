@@ -26,13 +26,12 @@ import org.json.JSONObject
 
 class HomeActivity : AppCompatActivity() {
 
-    var myFoodList: List<FoodData>? = null
     private lateinit var sharedPref: SharedPreferences
-    private lateinit var toolbarMenu: MenuItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
         sharedPref = this.getSharedPreferences(
             getString(R.string.preference_file_key), Context.MODE_PRIVATE)
 
@@ -55,9 +54,6 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu);
-        /*val shared = this.getPreferences(Context.MODE_PRIVATE)
-        val nb = shared.getInt("qtCart", 0)
-        countPastille(nb)*/
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -70,6 +66,15 @@ class HomeActivity : AppCompatActivity() {
                 it.setTitle(R.string.action_log_out)
             }
         }
+
+        menu?.findItem(R.id.menu_numb)?.let {
+            if (!sharedPref.contains(ID_QTY)) {
+                it.setTitle("0")
+            } else {
+                it.setTitle(sharedPref.getInt(ID_QTY, -1))
+            }
+        }
+
         return super.onPrepareOptionsMenu(menu)
     }
 
@@ -125,5 +130,8 @@ class HomeActivity : AppCompatActivity() {
         countText.text = num.toString()
     }
 
+    companion object {
+        val ID_QTY = "id_qty"
+    }
 
 }

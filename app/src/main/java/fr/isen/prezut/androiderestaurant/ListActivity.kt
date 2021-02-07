@@ -47,6 +47,13 @@ class ListActivity : AppCompatActivity(){
                 it.setTitle(R.string.action_log_out)
             }
         }
+        menu?.findItem(R.id.menu_numb)?.let {
+            if (!sharedPref.contains(HomeActivity.ID_QTY)) {
+                it.setTitle("0")
+            } else {
+                it.setTitle(sharedPref.getInt(HomeActivity.ID_QTY, 0))
+            }
+        }
         return super.onPrepareOptionsMenu(menu)
     }
 

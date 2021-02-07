@@ -7,6 +7,4 @@ data class OrderData(
     var idOrder : Int,
     var quantity : Int,
     var price : Double
-
-
-):Serializable
+    ):Serializable

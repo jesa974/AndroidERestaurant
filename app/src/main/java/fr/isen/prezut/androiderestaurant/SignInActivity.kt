@@ -42,6 +42,34 @@ class SignInActivity : AppCompatActivity() {
 
         binding.submitSignIn.setOnClickListener {
             val user = UserData(
+                    "",
+                    "",
+                    binding.emailInput.text.toString(),
+                    "",
+                    binding.passwordInput.text.toString()
+            )
+            val queue = Volley.newRequestQueue(this)
+            val req = signIn(user, "1")
+            queue.add(req)
+
+            if (binding.remindMeCheckBox.isChecked) {
+                with(sharedPref.edit()) {
+                    putBoolean(FIRST_TIME_SIGN_IN, false)
+                    apply()
+                }
+            } else {
+                with(sharedPref.edit()) {
+                    putBoolean(FIRST_TIME_SIGN_IN, true)
+                    apply()
+                }
+            }
+
+            Toast.makeText(this.applicationContext, "Sign in successfully", Toast.LENGTH_SHORT).show()
+            redirectToParent()
+        }
+
+        binding.submitSignIn.setOnClickListener {
+            val user = UserData(
                 "",
                 "",
                 binding.emailInput.text.toString(),
@@ -50,7 +78,7 @@ class SignInActivity : AppCompatActivity() {
             )
             val queue = Volley.newRequestQueue(this)
             val req = signIn(user, "1")
-            val answer = queue.add(req)
+            queue.add(req)
 
             if (binding.remindMeCheckBox.isChecked) {
                 with(sharedPref.edit()) {

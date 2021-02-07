@@ -37,9 +37,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu);
-        /*val shared = this.getPreferences(Context.MODE_PRIVATE)
-        val nb = shared.getInt("qtCart", 0)
-        countPastille(nb)*/
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -49,6 +47,13 @@ class DetailActivity : AppCompatActivity() {
                 it.setTitle(R.string.action_log_in)
             } else {
                 it.setTitle(R.string.action_log_out)
+            }
+        }
+        menu?.findItem(R.id.menu_numb)?.let {
+            if (!sharedPref.contains(HomeActivity.ID_QTY)) {
+                it.setTitle("0")
+            } else {
+                it.setTitle(sharedPref.getInt(HomeActivity.ID_QTY, 0))
             }
         }
         return super.onPrepareOptionsMenu(menu)
@@ -166,8 +171,8 @@ class DetailActivity : AppCompatActivity() {
 
     private fun orderSave(order : OrderData){
         var actual :MutableList<OrderData>
-        /*val shared = this.getPreferences(Context.MODE_PRIVATE)
-        val edit = shared.edit()*/
+        val shared = this.getSharedPreferences(getString(R.string.fileName), Context.MODE_PRIVATE)
+        val edit = shared.edit()
 
         try {
             applicationContext.openFileInput(fileName).use { inputStream ->
@@ -178,9 +183,9 @@ class DetailActivity : AppCompatActivity() {
                     order.idOrder += 1
 
                     actual.add(order)
-                    /*val nb = countIteminCart(actual)
+                    val nb = countItemInCart(actual)
                     countPastille(nb)
-                    edit.putInt("qtCart", nb)*/
+                    edit.putInt("id_qty", nb)
 
                     val newOne = Gson().toJson(actual)
                     applicationContext.openFileOutput(fileName, Context.MODE_PRIVATE).use { outputStream ->
@@ -189,8 +194,6 @@ class DetailActivity : AppCompatActivity() {
                     }
                 }
             }
-
-
         } catch(e: FileNotFoundException) {
             val orders = JsonArray()
             val parsed = Gson().toJsonTree(order)
@@ -199,20 +202,17 @@ class DetailActivity : AppCompatActivity() {
             applicationContext.openFileOutput(fileName, Context.MODE_PRIVATE).use {
                 it.write(orders.toString().toByteArray())
             }
-            //edit.putInt("qtCart", 0)
-
+            edit.putInt("id_qty", 0)
         }
-        //edit.apply()
-
-
+        edit.apply()
     }
 
     private fun countPastille(num :Int){
-        val countText = findViewById<TextView>(R.id.numberCart)
+        val countText = findViewById<TextView>(R.id.menu_numb)
         countText.text = num.toString()
     }
 
-    private  fun countIteminCart(list : MutableList<OrderData>) : Int{
+    private  fun countItemInCart(list : MutableList<OrderData>) : Int{
         var count:Int = 0
         for (content in list){
             count += content.quantity
